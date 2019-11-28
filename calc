@@ -1,0 +1,78 @@
+package com.company;
+
+import java.util.Scanner;
+
+class Calculator {
+    Calculator() {
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Throwable var2 = null;
+
+        try {
+            System.out.println("Enter an expression of the form 3 * 5");
+            double n1 = scanner.nextDouble();
+            String operation = scanner.next();
+            double n2 = scanner.nextDouble();
+            byte var9 = -1;
+            switch (operation.hashCode()) {
+                case 42:
+                    if (operation.equals("*")) {
+                        var9 = 3;
+                    }
+                    break;
+                case 43:
+                    if (operation.equals("+")) {
+                        var9 = 0;
+                    }
+                case 44:
+                case 46:
+                default:
+                    break;
+                case 45:
+                    if (operation.equals("-")) {
+                        var9 = 1;
+                    }
+                    break;
+                case 47:
+                    if (operation.equals("/")) {
+                        var9 = 2;
+                    }
+            }
+
+            switch (var9) {
+                case 0:
+                    System.out.println("Your answer is " + (n1 + n2));
+                    break;
+                case 1:
+                    System.out.println("Your answer is " + (n1 - n2));
+                    break;
+                case 2:
+                    System.out.println("Your answer is " + n1 / n2);
+                    break;
+                case 3:
+                    System.out.println("Your asnwer is " + n1 * n2);
+                    break;
+                default:
+                    System.out.println("Je ne sais pas");
+            }
+        } catch (Throwable var17) {
+            var2 = var17;
+            throw var17;
+        } finally {
+            if (scanner != null) {
+                if (var2 != null) {
+                    try {
+                        scanner.close();
+                    } catch (Throwable var16) {
+                        var2.addSuppressed(var16);
+                    }
+                } else {
+                    scanner.close();
+                }
+            }
+
+        }
+    }
+}
